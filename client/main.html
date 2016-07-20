@@ -13,13 +13,15 @@
 </head>
 <template name="hello">
   <div class="container">
-    <span>My rides:&nbsp;</span>
-    {{#if isMyRidesEmpty}}
-      <span style="color: orange">You have no active rides at the moment</span>
-    {{else}}
-      {{#each myRides}}
-        <span style="{{selectedRideStyle _id}}"><a href="#" class="js-pick-from-my-rides">{{bkn_ref}}</a>&nbsp;|&nbsp;</span>
-      {{/each}}
+    {{#if currentUser}}
+      <span>My rides:&nbsp;</span>
+      {{#if isMyRidesEmpty}}
+        <span style="color: orange">You have no active rides at the moment</span>
+      {{else}}
+        {{#each myRides}}
+          <span style="{{selectedRideStyle _id}}"><a href="#" class="js-pick-from-my-rides">{{bkn_ref}}</a>&nbsp;|&nbsp;</span>
+        {{/each}}
+      {{/if}}
     {{/if}}
   </div>
   <div class="container">
